@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+	</head>
+	<body>
+		    <label for="searchWord">Type a keyword</label><br><br>
+		    <input type="text" id="searchWord"><br><br>
+		    <button onclick="filterResults()">Search</button>
+	    </form>
+	    <table>
+            <tbody id="tbody"></tbody>
+        </table>
+		<script type="text/javascript" src="eventSoccer.js"></script>
+		<script type="text/javascript" src="eventSoccerStats.js"></script>
+		<script type="text/javascript" src="inPlay.js"></script>
+        <script>
+			const filterResults = () => {
+				let queryWord = document.getElementById("searchWord").value;
+                const filteredEventSoccer = eventSoccer.results.filter(obj => {
+                  const foundKeys = Object.keys(obj).find(val => {
+                    return val.toLowerCase().includes(queryWord.toLowerCase())
+                  })
+				  const foundValues = Object.values(obj).find(val => {
+				    return val.toLowerCase().includes(queryWord.toLowerCase())
+				  })
+     			  return foundKeys !== undefined || foundValues !== undefined
+			    })
+			    console.log("EventSoccer")
+			    console.log(filteredEventSoccer)
+			    const filteredEventSoccerStats = eventSoccerStats.results.filter(obj => {
+                  const foundKeys = Object.keys(obj).find(val => {
+                    return val.toLowerCase().includes(queryWord.toLowerCase())
+                  })
+				  const foundValues = Object.values(obj).find(val => {
+				    return val.toLowerCase().includes(queryWord.toLowerCase())
+				  })
+     			  return foundKeys !== undefined || foundValues !== undefined
+			    })
+			    console.log("EventSoccerStats")
+			    console.log(filteredEventSoccerStats)
+                const filteredInPlay = inPlay.results.filter(obj => {
+                  const foundKeys = Object.keys(obj).find(val => {
+                    return val.toLowerCase().includes(queryWord.toLowerCase())
+                  })
+				  const foundValues = Object.values(obj).find(val => {
+				    return val.toLowerCase().includes(queryWord.toLowerCase())
+				  })
+     			  return foundKeys !== undefined || foundValues !== undefined
+			    })
+			    console.log("InPlay")
+			    console.log(filteredInPlay)
+			}
+		</script>
+		
+    </body>
+</html>
+ 
